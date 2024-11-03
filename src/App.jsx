@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { incNumber, decNumber } from "./actions/index";
 
 function App() {
+  const myState = useSelector((state) => state.changeTheNumber);
+  const dispatch = useDispatch();
   return (
     <>
       <div className="bg-yellow-100">
@@ -16,6 +20,7 @@ function App() {
           <a
             title="Decrement"
             className="border bg-red-600 text-white text-2xl rounded-md cursor-pointer p-4"
+            onClick={() => dispatch(decNumber())}
           >
             <span>-</span>
           </a>
@@ -23,11 +28,12 @@ function App() {
             className="mt-16 p-2 border-slate-500 border-4 rounded-md bg-slate-300 text-yellow-600 text-center text-[20px]"
             type="text"
             name="quantity"
-            value="0"
+            value={myState}
           />
           <a
             title="Increment"
             className="border bg-green-600 text-white text-2xl rounded-md cursor-pointer p-4"
+            onClick={() => dispatch(incNumber())}
           >
             <span>+</span>
           </a>
