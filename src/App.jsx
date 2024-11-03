@@ -19,8 +19,11 @@ function App() {
         <div className="border-4 border-red-400 items-center mt-8 w-96 m-auto p-1 bg-slate-400">
           <a
             title="Decrement"
-            className="border bg-red-600 text-white text-2xl rounded-md cursor-pointer p-4"
-            onClick={() => dispatch(decNumber())}
+            className={`border bg-red-600 text-white text-2xl rounded-md cursor-pointer p-4 ${
+              myState === 0 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            onClick={() => dispatch(decNumber(2))}
+            disabled={myState === 0}
           >
             <span>-</span>
           </a>
@@ -33,7 +36,7 @@ function App() {
           <a
             title="Increment"
             className="border bg-green-600 text-white text-2xl rounded-md cursor-pointer p-4"
-            onClick={() => dispatch(incNumber())}
+            onClick={() => dispatch(incNumber(5))}
           >
             <span>+</span>
           </a>
