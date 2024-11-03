@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div>
+      <div className="bg-yellow-100">
         <h1 className="text-6xl text-red-500 font-bold underline">
           INCREMENT/DECREMENT COUNTER...!
         </h1>
